@@ -1,0 +1,146 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: hsl(240, 15%, 9%);
+  color: hsl(60, 10%, 95%);
+  min-height: 100dvh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.6vh, 1.4rem);
+  padding: clamp(0.5rem, 1.5vh, 1rem);
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.5rem;
+  color: hsl(150, 100%, 50%);
+  text-shadow: 0 0 30px hsla(150, 100%, 50%, 0.5);
+  text-align: center;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 1.5rem;
+  border: 1px solid hsl(240, 10%, 25%);
+  background: hsl(240, 12%, 14%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.scoreboard .win { color: hsl(150, 100%, 50%); }
+.scoreboard .draw { color: hsl(35, 100%, 55%); }
+.scoreboard .lose { color: hsl(0, 85%, 60%); }
+
+.duel-stage {
+  width: min(92vw, 44rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.duel-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.72rem;
+  color: hsl(240, 5%, 72%);
+  padding: 0 0.35rem;
+}
+
+.duel-scene {
+  width: 100%;
+  height: min(46vh, 22rem);
+  border-radius: 1rem;
+  border: 2px solid hsla(190, 90%, 65%, 0.28);
+  background:
+    radial-gradient(circle at 18% 24%, hsla(155, 90%, 50%, 0.09), transparent 38%),
+    radial-gradient(circle at 82% 20%, hsla(275, 90%, 65%, 0.1), transparent 42%),
+    linear-gradient(180deg, hsl(236, 20%, 18%), hsl(242, 23%, 9%));
+  box-shadow:
+    inset 0 0 42px hsla(190, 100%, 60%, 0.1),
+    0 14px 30px hsla(240, 60%, 2%, 0.45);
+  overflow: hidden;
+}
+
+.result {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.result.win { color: hsl(150, 100%, 50%); }
+.result.lose { color: hsl(0, 85%, 60%); }
+.result.draw { color: hsl(35, 100%, 55%); }
+
+.choices {
+  display: flex;
+  gap: 1rem;
+}
+
+.choice-btn {
+  width: clamp(4.6rem, 9vw, 6rem);
+  height: clamp(4.6rem, 9vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  border: 2px solid hsl(240, 10%, 25%);
+  background: hsl(240, 12%, 14%);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.choice-btn:hover {
+  transform: scale(1.1);
+  border-color: hsl(150, 100%, 50%);
+}
+
+.reset-btn {
+  background: none;
+  border: 1px solid hsl(240, 10%, 25%);
+  color: hsl(240, 5%, 55%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .duel-scene {
+    height: min(42vh, 16rem);
+  }
+
+  .choice-btn {
+    width: clamp(4.2rem, 18vw, 5rem);
+    height: clamp(4.2rem, 18vw, 5rem);
+  }
+}
+
+/* Animations */
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-12px); }
+  75% { transform: translateY(12px); }
+}
+
+.animate-bounce-in { animation: bounce-in 0.5s; }
+.animate-shake { animation: shake 0.4s ease-in-out 3; }

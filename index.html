@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>ROCK PAPER SCISSORS</h1>
+
+  <div class="scoreboard">
+    <span class="win" id="wins">0W</span>
+    <span class="draw" id="draws">0D</span>
+    <span class="lose" id="losses">0L</span>
+  </div>
+
+  <div class="duel-stage">
+    <div class="duel-labels">
+      <label>You</label>
+      <label>CPU</label>
+    </div>
+    <div class="duel-scene" id="duel-scene"></div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <div class="choices">
+    <button class="choice-btn" onclick="play('rock')">
+      <span>🪨</span><span class="label">Rock</span>
+    </button>
+
+    <button class="choice-btn" onclick="play('paper')">
+      <span>📄</span><span class="label">Paper</span>
+    </button>
+
+    <button class="choice-btn" onclick="play('scissors')">
+      <span>✂️</span><span class="label">Scissors</span>
+    </button>
+  </div>
+
+  <button class="reset-btn" onclick="resetScore()">Reset Score</button>
+
+  <!-- JavaScript File -->
+  <script src="game.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", initializeGame3D);
+  </script>
+
+</body>
+</html>
